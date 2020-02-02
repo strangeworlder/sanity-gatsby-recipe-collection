@@ -19,9 +19,9 @@ export default () =>
             .documentId('siteSettings')
         ),
       S.listItem()
-        .title('Blog posts')
+        .title('Reseptit')
         .schemaType('post')
-        .child(S.documentTypeList('post').title('Blog posts')),
+        .child(S.documentTypeList('post').title('Reseptit')),
       S.listItem()
         .title('Authors')
         .icon(MdPerson)
