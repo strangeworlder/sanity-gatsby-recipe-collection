@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import {format} from 'date-fns'
 
 export default {
   name: 'post',
@@ -8,18 +8,24 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title',
-      description: 'Titles should be catchy, descriptive, and not too long'
+      title: 'Reseptin nimi',
+      description: 'Reseptin nimi'
     },
     {
       name: 'slug',
       type: 'slug',
-      title: 'Slug',
+      title: 'Linkki',
       description: 'Some frontends will require a slug to be set to be able to show the post',
       options: {
         source: 'title',
         maxLength: 96
       }
+    },
+    {
+      name: 'vege',
+      type: 'boolean',
+      title: 'Kasvisruoka',
+      description: 'Onko tämä kasvissapuskaa?'
     },
     {
       name: 'publishedAt',
@@ -105,7 +111,7 @@ export default {
       slug: 'slug',
       media: 'mainImage'
     },
-    prepare({ title = 'No title', publishedAt, slug = {}, media }) {
+    prepare ({title = 'No title', publishedAt, slug = {}, media}) {
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
       return {
